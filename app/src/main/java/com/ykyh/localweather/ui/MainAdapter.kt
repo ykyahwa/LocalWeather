@@ -31,11 +31,15 @@ class MainAdapter: BaseRecyclerViewAdapter<MainItem>() {
     inner class WeatherHeaderHolder(view: View): BaseViewHolder(view) {
 
         private val tvLocation = itemView.tvLocation
+        private val weatherToday = itemView.weatherToday
+        private val weatherTomorrow = itemView.weatherTomorrow
 
         override fun onBindView(item: RecyclerItem?, position: Int) {
             if (item is MainItem) {
                 item.weatherItem?.let {weatherItem ->
                     tvLocation.text = weatherItem.local
+                    weatherToday.setWeather(weatherItem.todayWeather)
+                    weatherTomorrow.setWeather(weatherItem.tomorrowWeather)
                 }
             }
         }

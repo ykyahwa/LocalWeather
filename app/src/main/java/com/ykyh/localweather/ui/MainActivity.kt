@@ -10,8 +10,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainContract.MainView {
 
-    lateinit var presenter: MainPresenter
-    lateinit var adapter: MainAdapter
+    private lateinit var presenter: MainPresenter
+    private lateinit var adapter: MainAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity(), MainContract.MainView {
         adapter = MainAdapter()
         rvList.adapter = adapter
         rvList.setDivider(R.drawable.main_recyclerview_divider)
+
+        swipe.setOnRefreshListener {
+            swipe.isRefreshing = false
+            presenter.refresh()
+        }
     }
 
     override fun addWeatherItem(item: MainItem) {
@@ -40,6 +45,11 @@ class MainActivity : AppCompatActivity(), MainContract.MainView {
 
     override fun progressVisible(isVisible: Boolean) {
         pbProgress.isVisible = isVisible
+    }
+
+    override fun clearList() {
+        adapter.clear()
+        adapter.notifyDataSetChanged()
     }
 
 }

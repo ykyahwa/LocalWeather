@@ -1,11 +1,10 @@
 package com.ykyh.localweather.ui
 
-import android.util.Log
 import com.ykyh.localweather.data.WeatherResult
 import com.ykyh.localweather.repository.WeatherRepository
 import io.reactivex.disposables.CompositeDisposable
 
-private const val targetLocation = "se"
+internal const val targetLocation = "se"
 
 class MainPresenter(private val weatherRepository: WeatherRepository): MainContract.MainPresenter {
 
@@ -27,6 +26,7 @@ class MainPresenter(private val weatherRepository: WeatherRepository): MainContr
 
     override fun requestWeather(query: String) {
         view?.progressVisible(true)
+
         weatherRepository.getWeather(query)
             .map { result -> makeMainData(result) }
             .subscribe({ result ->
@@ -40,6 +40,11 @@ class MainPresenter(private val weatherRepository: WeatherRepository): MainContr
             })
             .apply { compositeDisposable?.add(this) }
 
+    }
+
+    override fun refresh() {
+        view?.clearList()
+        requestWeather(targetLocation)
     }
 
     private fun makeTitleItem() =

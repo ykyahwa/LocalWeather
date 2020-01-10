@@ -6,8 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <ImageView
         android:id="@+id/ivWeather"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,16 +20,18 @@
         app:layout_constraintTop_toTopOf="@id/ivWeather"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:layout_marginStart="10dp"
-        android:text="Rain" />
+        tools:text="Rain" />
     <TextView
         android:id="@+id/tvTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@id/ivWeather"
         app:layout_constraintBottom_toBottomOf="@id/ivWeather"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:layout_marginStart="10dp"
-        android:text="10" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@android:color/holo_red_light"
+        android:textStyle="bold"
+        tools:text="10" />
     <TextView
         android:id="@+id/tvHumidity"
         android:layout_width="wrap_content"
@@ -38,7 +40,8 @@
         app:layout_constraintBottom_toBottomOf="@id/ivWeather"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:layout_marginStart="10dp"
-        android:text="10" />
+        android:textStyle="bold"
+        tools:text="10" />
 
 
 

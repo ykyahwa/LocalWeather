@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal">
     <FrameLayout
-        android:layout_width="70dp"
+        android:layout_width="@dimen/main_item_title_with"
         android:layout_height="match_parent">
         <TextView
             android:id="@+id/tvLocation"
@@ -16,18 +16,20 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             tools:text="Seoul"/>
     </FrameLayout>
+
     <include layout="@layout/view_line"/>
+
     <com.ykyh.localweather.ui.MainWeatherView
+        android:id="@+id/weatherToday"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1">
-    </com.ykyh.localweather.ui.MainWeatherView>
+        android:layout_weight="1"/>
+
     <include layout="@layout/view_line"/>
+
     <com.ykyh.localweather.ui.MainWeatherView
+        android:id="@+id/weatherTomorrow"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1">
-
-    </com.ykyh.localweather.ui.MainWeatherView>
-
+        android:layout_weight="1"/>
 </LinearLayout>

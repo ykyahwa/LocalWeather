@@ -9,12 +9,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 interface WeatherRepository {
-
-//    fun getLocationSearch(query: String): Single<ArrayList<LocationResult>>
-//    fun getLocationWeather(woeid: Int): Single<WeatherResult>
     fun getWeather(query: String): Observable<WeatherResult>
-
-
 }
 
 class WeatherRepositoryImpl : WeatherRepository {
