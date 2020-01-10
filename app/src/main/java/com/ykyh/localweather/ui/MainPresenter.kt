@@ -1,9 +1,8 @@
 package com.ykyh.localweather.ui
 
 import android.util.Log
-import com.ykyh.localweather.data.LocationResult
+import com.ykyh.localweather.data.WeatherResult
 import com.ykyh.localweather.repository.WeatherRepository
-import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 
 private const val targetLocation = "se"
@@ -27,22 +26,31 @@ class MainPresenter(private val weatherRepository: WeatherRepository): MainContr
     }
 
     override fun requestWeather(query: String) {
-        weatherRepository.getLocationSearch(query)
-            .filter { locationList : ArrayList<LocationResult> -> locationList.isNotEmpty() }
-            .flatMapObservable { list -> Observable.fromIterable(list) }
-            .filter { location -> location.woeid != null }
-            .flatMapSingle { location ->  weatherRepository.getLocationWeather(location.woeid!!) }
+        view?.progressVisible(true)
+        weatherRepository.getWeather(query)
+            .map { result -> makeMainData(result) }
             .subscribe({ result ->
-                Log.d("TEST","result = $result")
-
+                view?.addWeatherItem(result)
             },{
                 it.printStackTrace()
+                view?.progressVisible(false)
             }, {
-
+                view?.addTitleAndNotify(makeTitleItem())
+                view?.progressVisible(false)
             })
             .apply { compositeDisposable?.add(this) }
 
     }
+
+    private fun makeTitleItem() =
+        MainItem(titleItem = MainTitleItem("Local", "Today", "tomorrow")).apply {
+            viewType = MAIN_VIEW_TYPE_HEADER
+        }
+
+    private fun makeMainData(result: WeatherResult) =
+        MainItem(weatherItem = MainWeatherItem(result.title, result.consolidatedWeather?.get(0), result.consolidatedWeather?.get(1))).apply {
+            viewType = MAIN_VIEW_TYPE_WEATHER
+        }
 
 
 }

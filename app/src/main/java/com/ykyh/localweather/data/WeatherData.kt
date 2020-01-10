@@ -10,10 +10,11 @@ data class LocationResult(
     @SerializedName("distance") val distance: Int?)
 
 data class WeatherResult(
+    @SerializedName("title") val title: String?,
     @SerializedName("consolidated_weather") val consolidatedWeather: ArrayList<Weather>?)
 
 data class Weather(
     @SerializedName("weather_state_name") val weatherStateName: String?,
     @SerializedName("weather_state_abbr") val weatherStateAbbr: String?,
-    @SerializedName("the_temp") val theTemp: Long?,
-    @SerializedName("humidity") val humidity: Long?)
+    @SerializedName("the_temp") val theTemp: Double?,
+    @SerializedName("humidity") val humidity: Double?)
