@@ -1,8 +1,12 @@
 package com.ykyh.localweather.ui
 
+import android.graphics.Rect
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.RecyclerView
 import com.ykyh.localweather.R
 import com.ykyh.localweather.repository.WeatherRepositoryImpl
 import com.ykyh.localweather.util.setDivider
@@ -26,6 +30,12 @@ class MainActivity : AppCompatActivity(), MainContract.MainView {
     private fun initView() {
         adapter = MainAdapter()
         rvList.adapter = adapter
+        rvList.addItemDecoration(object: RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                outRect.left = 30
+                outRect.right = 30
+            }
+        })
         rvList.setDivider(R.drawable.main_recyclerview_divider)
 
         swipe.setOnRefreshListener {
@@ -50,6 +60,10 @@ class MainActivity : AppCompatActivity(), MainContract.MainView {
     override fun clearList() {
         adapter.clear()
         adapter.notifyDataSetChanged()
+    }
+
+    override fun showError() {
+        Toast.makeText(this, getString(R.string.error_message), Toast.LENGTH_LONG).show()
     }
 
 }

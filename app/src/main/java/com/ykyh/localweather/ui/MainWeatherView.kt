@@ -27,8 +27,8 @@ class MainWeatherView @JvmOverloads constructor(context: Context,
                 .load(weatherIconMap[nonNullWeather.weatherStateAbbr])
                 .into(ivWeather)
             tvWeather.text = nonNullWeather.weatherStateName
-            tvTemp.text = nonNullWeather.theTemp?.toInt().toString()
-            tvHumidity.text = nonNullWeather.humidity?.toInt().toString()
+            tvTemp.text = context.getString(R.string.temp, nonNullWeather.theTemp?.toInt())
+            tvHumidity.text = context.getString(R.string.humidity,  nonNullWeather.humidity?.toInt())
         }
     }
 }

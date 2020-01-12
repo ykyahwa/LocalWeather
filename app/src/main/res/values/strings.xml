@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">LocalWeather</string>
     <string name="main_title">Local Weather</string>
+    <string name="error_message">에러!</string>
+    <string name="title_local">Local</string>
+    <string name="title_today">Today</string>
+    <string name="title_tomorrow">Tomorrow</string>
+    <string name="temp">%d℃</string>
+    <string name="humidity">%d%%</string>
 </resources>

@@ -34,6 +34,7 @@ class MainPresenter(private val weatherRepository: WeatherRepository): MainContr
             },{
                 it.printStackTrace()
                 view?.progressVisible(false)
+                view?.showError()
             }, {
                 view?.addTitleAndNotify(makeTitleItem())
                 view?.progressVisible(false)

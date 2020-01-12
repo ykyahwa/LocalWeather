@@ -6,6 +6,7 @@ interface MainContract{
         fun addTitleAndNotify(item: MainItem)
         fun progressVisible(isVisible: Boolean)
         fun clearList()
+        fun showError()
     }
 
     interface MainPresenter {

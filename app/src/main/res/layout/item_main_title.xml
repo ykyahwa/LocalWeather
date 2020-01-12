@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Local"/>
+            android:text="@string/title_local"/>
     </FrameLayout>
     <include layout="@layout/view_line"/>
     <FrameLayout
@@ -26,7 +26,7 @@
             android:layout_gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textStyle="bold"
-            android:text="Today"/>
+            android:text="@string/title_today"/>
     </FrameLayout>
     <include layout="@layout/view_line"/>
     <FrameLayout
@@ -39,6 +39,6 @@
             android:layout_gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textStyle="bold"
-            android:text="Tomorrow"/>
+            android:text="@string/title_tomorrow"/>
     </FrameLayout>
 </LinearLayout>
