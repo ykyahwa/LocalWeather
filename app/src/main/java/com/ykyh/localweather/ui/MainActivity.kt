@@ -9,7 +9,6 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.ykyh.localweather.R
 import com.ykyh.localweather.repository.WeatherRepositoryImpl
-import com.ykyh.localweather.util.setDivider
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainContract.MainView {
@@ -32,11 +31,20 @@ class MainActivity : AppCompatActivity(), MainContract.MainView {
         rvList.adapter = adapter
         rvList.addItemDecoration(object: RecyclerView.ItemDecoration() {
             override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                val itemPosition = parent.getChildAdapterPosition(view)
+
+                if (itemPosition == RecyclerView.NO_POSITION) return
+
+                val itemCount = state.itemCount
+
                 outRect.left = 30
                 outRect.right = 30
+
+                if (itemCount > 0 && itemPosition == itemCount - 1) {
+                    outRect.bottom = 30
+                }
             }
         })
-        rvList.setDivider(R.drawable.main_recyclerview_divider)
 
         swipe.setOnRefreshListener {
             swipe.isRefreshing = false
