@@ -1,12 +1,14 @@
-package com.ykyh.localweather.ui
+package com.ykyh.localweather.presentation
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ykyh.localweather.R
-import com.ykyh.localweather.ui.base.BaseRecyclerViewAdapter
-import com.ykyh.localweather.ui.base.BaseViewHolder
-import com.ykyh.localweather.ui.base.RecyclerItem
+import com.ykyh.localweather.data.MAIN_VIEW_TYPE_HEADER
+import com.ykyh.localweather.data.MainItem
+import com.ykyh.localweather.presentation.base.BaseRecyclerViewAdapter
+import com.ykyh.localweather.presentation.base.BaseViewHolder
+import com.ykyh.localweather.presentation.base.RecyclerItem
 import kotlinx.android.synthetic.main.item_main_weather.view.*
 
 
@@ -19,13 +21,7 @@ class MainAdapter: BaseRecyclerViewAdapter<MainItem>() {
         }
 
     inner class MainHeaderHolder(view: View): BaseViewHolder(view) {
-
-
-        override fun onBindView(item: RecyclerItem?, position: Int) {
-            if (item is MainItem) {
-            }
-        }
-
+        override fun onBindView(item: RecyclerItem?, position: Int) {}
     }
 
     inner class WeatherHeaderHolder(view: View): BaseViewHolder(view) {

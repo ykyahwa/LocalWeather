@@ -1,4 +1,6 @@
-package com.ykyh.localweather.ui
+package com.ykyh.localweather.presentation
+
+import com.ykyh.localweather.data.MainItem
 
 interface MainContract{
     interface MainView {

@@ -1,6 +1,6 @@
-package com.ykyh.localweather.ui
+package com.ykyh.localweather.presentation
 
-import com.ykyh.localweather.data.WeatherResult
+import com.ykyh.localweather.data.*
 import com.ykyh.localweather.repository.WeatherRepository
 import io.reactivex.disposables.CompositeDisposable
 
@@ -49,12 +49,24 @@ class MainPresenter(private val weatherRepository: WeatherRepository): MainContr
     }
 
     private fun makeTitleItem() =
-        MainItem(titleItem = MainTitleItem("Local", "Today", "tomorrow")).apply {
+        MainItem(
+            titleItem = MainTitleItem(
+                "Local",
+                "Today",
+                "tomorrow"
+            )
+        ).apply {
             viewType = MAIN_VIEW_TYPE_HEADER
         }
 
     private fun makeMainData(result: WeatherResult) =
-        MainItem(weatherItem = MainWeatherItem(result.title, result.consolidatedWeather?.get(0), result.consolidatedWeather?.get(1))).apply {
+        MainItem(
+            weatherItem = MainWeatherItem(
+                result.title,
+                result.consolidatedWeather?.get(0),
+                result.consolidatedWeather?.get(1)
+            )
+        ).apply {
             viewType = MAIN_VIEW_TYPE_WEATHER
         }
 

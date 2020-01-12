@@ -1,4 +1,4 @@
-package com.ykyh.localweather.ui
+package com.ykyh.localweather.presentation
 
 import android.graphics.Rect
 import android.os.Bundle
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.ykyh.localweather.R
+import com.ykyh.localweather.data.MainItem
 import com.ykyh.localweather.repository.WeatherRepositoryImpl
 import kotlinx.android.synthetic.main.activity_main.*
 

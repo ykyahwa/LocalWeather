@@ -1,4 +1,4 @@
-package com.ykyh.localweather.ui.base
+package com.ykyh.localweather.presentation.base
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

@@ -1,7 +1,6 @@
-package com.ykyh.localweather.ui
+package com.ykyh.localweather.data
 
-import com.ykyh.localweather.data.Weather
-import com.ykyh.localweather.ui.base.RecyclerItem
+import com.ykyh.localweather.presentation.base.RecyclerItem
 
 const val MAIN_VIEW_TYPE_HEADER = 0
 const val MAIN_VIEW_TYPE_WEATHER = 1

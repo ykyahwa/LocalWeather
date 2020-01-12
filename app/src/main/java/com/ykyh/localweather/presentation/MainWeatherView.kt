@@ -1,4 +1,4 @@
-package com.ykyh.localweather.ui
+package com.ykyh.localweather.presentation
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.ykyh.localweather.R
 import com.ykyh.localweather.data.Weather
+import com.ykyh.localweather.data.weatherIconMap
 import kotlinx.android.synthetic.main.view_main_weather.view.*
 
 class MainWeatherView @JvmOverloads constructor(context: Context,
