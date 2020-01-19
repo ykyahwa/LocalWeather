@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 
 class RetrofitCreator {
     companion object {
-        private const val API_BASE_URL = "https://www.metaweather.com/"
+        const val API_BASE_URL = "https://www.metaweather.com/"
 
         fun weatherRetrofit(): WeatherApi =
             Retrofit.Builder()
@@ -29,7 +29,6 @@ class RetrofitCreator {
             val builder = OkHttpClient.Builder()
 
             val interceptor = HttpLoggingInterceptor(ApiLogger()) // Json PrettyPrinting
-//            val interceptor = HttpLoggingInterceptor()
             if (BuildConfig.DEBUG) {
                 interceptor.level = HttpLoggingInterceptor.Level.BODY
             } else {
@@ -41,15 +40,6 @@ class RetrofitCreator {
                 .readTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
-//                .addInterceptor { chain ->
-//                    val request = chain.request().newBuilder()
-//                        .addHeader("Device-Type", "1")
-//                        .addHeader("App-Version", BuildConfig.VERSION_NAME)
-//                        .addHeader("Revision", "2019")
-//                        .addHeader("api-key", GlobalPreference.api_key)  // 비로그인 : not_login_user_key ,로그인 : 서버에서 받은 api_key
-//                        .addHeader("Content-Type", "application/json")
-//                        .build()
-//                    chain.proceed(request)
 //                }
 
             return builder.build()

@@ -10,6 +10,7 @@ buildscript {
         daggerVersion = '2.14.1'
         mockitoVersion = '2.11.0'
         lifeCycleExtensionVersion = '1.1.1'
+        dagger2Version = '2.23.2'
     }
     repositories {
         google()
