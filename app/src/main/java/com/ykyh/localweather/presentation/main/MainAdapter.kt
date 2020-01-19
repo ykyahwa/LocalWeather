@@ -1,4 +1,4 @@
-package com.ykyh.localweather.presentation
+package com.ykyh.localweather.presentation.main
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +10,10 @@ import com.ykyh.localweather.presentation.base.BaseRecyclerViewAdapter
 import com.ykyh.localweather.presentation.base.BaseViewHolder
 import com.ykyh.localweather.presentation.base.RecyclerItem
 import kotlinx.android.synthetic.main.item_main_weather.view.*
+import javax.inject.Inject
 
 
-class MainAdapter: BaseRecyclerViewAdapter<MainItem>() {
+class MainAdapter @Inject constructor(): BaseRecyclerViewAdapter<MainItem>() {
 
     override fun onCreateNewHolder(parent: ViewGroup, type: Int) =
         when(type) {

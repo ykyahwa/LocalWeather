@@ -7,25 +7,13 @@ import com.google.gson.JsonSyntaxException
 import com.ykyh.localweather.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class RetrofitCreator {
     companion object {
         const val API_BASE_URL = "https://www.metaweather.com/"
 
-        fun weatherRetrofit(): WeatherApi =
-            Retrofit.Builder()
-                .baseUrl(API_BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .client(createOkHttpClient())
-                .build()
-                .create(WeatherApi::class.java)
-
-        private fun createOkHttpClient(): OkHttpClient {
+        fun createOkHttpClient(): OkHttpClient {
             val builder = OkHttpClient.Builder()
 
             val interceptor = HttpLoggingInterceptor(ApiLogger()) // Json PrettyPrinting
@@ -40,7 +28,6 @@ class RetrofitCreator {
                 .readTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
-//                }
 
             return builder.build()
         }

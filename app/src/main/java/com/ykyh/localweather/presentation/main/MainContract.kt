@@ -1,4 +1,4 @@
-package com.ykyh.localweather.presentation
+package com.ykyh.localweather.presentation.main
 
 import com.ykyh.localweather.data.MainItem
 

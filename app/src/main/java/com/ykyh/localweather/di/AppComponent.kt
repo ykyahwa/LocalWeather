@@ -1,28 +1,24 @@
 package com.ykyh.localweather.di
 
-import android.app.Application
+import com.ykyh.localweather.LocalWeatherApplication
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 @Singleton
-@Component()
-interface AppComponent : AndroidInjector<DaggerApplication> {
+@Component(modules = [ApplicationModule::class, ActivityBindingModule::class, AndroidSupportInjectionModule::class])
+interface AppComponent : AndroidInjector<LocalWeatherApplication> {
 
-    override fun inject(instance: DaggerApplication)
+    override fun inject(instance: LocalWeatherApplication)
 
     @Component.Builder
     interface Builder {
         @BindsInstance
-        fun application(application: Application): Builder
+        fun application(application: LocalWeatherApplication): Builder
 
         fun build(): AppComponent
 
     }
-
-
-
-
 }

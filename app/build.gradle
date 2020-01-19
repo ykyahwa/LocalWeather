@@ -54,7 +54,6 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
     implementation "com.google.dagger:dagger-android:$rootProject.dagger2Version"
     implementation "com.google.dagger:dagger-android-support:$rootProject.dagger2Version"
-    // if you use the support libraries
     kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
 
     testImplementation 'junit:junit:4.12'

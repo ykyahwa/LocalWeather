@@ -1,12 +1,13 @@
-package com.ykyh.localweather.presentation
+package com.ykyh.localweather.presentation.main
 
 import com.ykyh.localweather.data.*
 import com.ykyh.localweather.repository.WeatherRepository
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
 internal const val targetLocation = "se"
 
-class MainPresenter(private val weatherRepository: WeatherRepository): MainContract.MainPresenter {
+class MainPresenter @Inject constructor(val weatherRepository: WeatherRepository): MainContract.MainPresenter {
 
     private var view: MainContract.MainView? = null
     private var compositeDisposable: CompositeDisposable? = null

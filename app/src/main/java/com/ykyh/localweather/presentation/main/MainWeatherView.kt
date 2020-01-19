@@ -1,4 +1,4 @@
-package com.ykyh.localweather.presentation
+package com.ykyh.localweather.presentation.main
 
 import android.content.Context
 import android.util.AttributeSet

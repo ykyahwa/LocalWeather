@@ -1,34 +1,35 @@
-package com.ykyh.localweather.presentation
+package com.ykyh.localweather.presentation.main
 
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.ykyh.localweather.R
 import com.ykyh.localweather.data.MainItem
-import com.ykyh.localweather.repository.WeatherRepositoryImpl
+import com.ykyh.localweather.presentation.base.BaseRecyclerViewAdapter
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), MainContract.MainView {
+class MainActivity : DaggerAppCompatActivity(), MainContract.MainView {
 
-    private lateinit var presenter: MainPresenter
-    private lateinit var adapter: MainAdapter
+    @Inject
+    lateinit var presenter: MainPresenter
+    @Inject
+    lateinit var adapter: BaseRecyclerViewAdapter<MainItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter = MainPresenter(WeatherRepositoryImpl())
         presenter.takeView(this)
 
         initView()
     }
 
     private fun initView() {
-        adapter = MainAdapter()
         rvList.adapter = adapter
         rvList.addItemDecoration(object: RecyclerView.ItemDecoration() {
             override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
