@@ -1,4 +1,4 @@
-package com.mathpresso.qanda.diV3
+package com.ykyh.localweather.di
 
 import javax.inject.Scope
 

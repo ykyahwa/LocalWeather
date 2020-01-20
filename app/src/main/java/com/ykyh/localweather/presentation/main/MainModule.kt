@@ -1,6 +1,6 @@
 package com.ykyh.localweather.presentation.main
 
-import com.mathpresso.qanda.diV3.ActivityScoped
+import com.ykyh.localweather.di.ActivityScoped
 import com.ykyh.localweather.data.MainItem
 import com.ykyh.localweather.network.WeatherApi
 import com.ykyh.localweather.presentation.base.BaseRecyclerViewAdapter
