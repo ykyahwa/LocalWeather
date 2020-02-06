@@ -29,7 +29,8 @@ class WeatherRepositoryImpl @Inject constructor(val weatherApi: WeatherApi) : We
             .filter { locationList : ArrayList<LocationResult> -> locationList.isNotEmpty() }
             .flatMapObservable { list -> Observable.fromIterable(list) }
             .filter { location -> location.woeid != null }
-            .flatMapSingle { location ->  getLocationWeather(location.woeid!!) }
+            .concatMapSingle { location ->  getLocationWeather(location.woeid!!) }
+//            .flatMapSingle { location ->  getLocationWeather(location.woeid!!) }
 
 
 }
